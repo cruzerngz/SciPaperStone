@@ -114,7 +114,7 @@ while gamecount < prescribed_games:
     break
   #This checks the number of remaining turns with the score gap between player and computer.
   #Game ends when the score gap cannot be closed.
-  if abs(userwins -comwins) > prescribed_games - gamecount:
+  if abs(userwins - comwins) > prescribed_games - gamecount:
     break
   else:
     continue 

@@ -12,4 +12,8 @@ In the event that you have entered an invalid move, such as `scsiors`, the game 
 ####Ending the game early
 You can end the game any time by entering `finish` or `stop`. After which the current winner will be named.
 
+####Best of game
+As this is a best of game, when the current score gap cannot be closed by the losing player with the remaining number of rounds, the game will end early.
+For example, if you have a 2-0 lead over the computer in a 3 round match, the game will end without proceeding to the final round.
+
 Thanks for playing!

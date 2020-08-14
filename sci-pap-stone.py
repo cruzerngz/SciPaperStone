@@ -5,9 +5,9 @@ import random, time
 inputattempt = 0 
 choicelist = ["scissors","paper","stone"]
 #added more than 1 choice of input
-choice1 = "Scissors scissors 1"
-choice2 = "Paper paper 2"
-choice3 = "Stone stone 3"
+choice1 = "Scissors_scissors_1"
+choice2 = "Paper_paper_2"
+choice3 = "Stone_stone_3"
 #Change the number of games below
 prescribed_games = 3
 #Change the number of invalid entries below

@@ -36,7 +36,7 @@ time.sleep(0.5)
 while gamecount < prescribed_games:
     while inputattempt < prescribed_attempts:
         ##Get the user's play
-        userinput = input("Turn " + str(gamecount + 1) + "\nChoose your [scissors,paper,stone]!\n")
+        userinput = input("Turn " + str(gamecount + 1) + "/" + str(prescribed_games) + "\nChoose your [scissors,paper,stone]!\n")
         #Check for any errors in selection, then proceeds with game if true
         #Now accepts shortform of the full word, as well as numbers corresponding to the position in list
         if userinput in choice1 + choice2 + choice3:

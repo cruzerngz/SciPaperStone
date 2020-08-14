@@ -1,9 +1,9 @@
 # SciPaperStone
 My first python program!
 
-### How to play:
+#### How to play:
 This game requires you to install the python shell on your computer.
-The program follows the rules of the classic game, and allows any number of rounds to be played.
+The program follows the rules of the classic game, and allows for any number of rounds to be played.
 
 #### Entering your move
 Moves can be entered in full, such as `scissors`, or `sci`, or even `ors`. Alternatively, entering the index corresponding to the position of the move in the list will also register. *Note that the index starts from 1*.

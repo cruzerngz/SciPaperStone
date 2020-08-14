@@ -3,7 +3,11 @@ import random, time
 
 #List of variables
 inputattempt = 0 
-choicelist = ["scissors","paper","stone"]
+choicelist = ["scissors","paper","stone","Scissors","Paper","Stone"]
+#added more than 1 choice of input
+choice1 = ["Scissors","scissors"]
+choice2 = ["Paper","paper"]
+choice3 = ["Stone","stone"]
 #Change the number of games below
 prescribed_games = 3
 #Change the number of invalid entries below
@@ -18,15 +22,15 @@ print("Welcome to scissors paper stone!")
 time.sleep(0.5)
 
 #Checks that input is an integer, exits the code if it isn't
-#Hash out the next 5 lines if you do not want the user to change no. of games
+#Hash out the next 6 lines if you do not want the user to change no. of games
 try:
   prescribed_games = int(input("Choose the number of games to play:\n"))
 except:
   print("error. not a number")
   input("press enter to exit...")
   exit()
-time.sleep(0.5)
 
+time.sleep(0.5)
 print("This is a best of " + str(prescribed_games) + "!\n")
 time.sleep(0.5)
 

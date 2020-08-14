@@ -17,6 +17,21 @@ gamecount = 0
 userwins = 0
 comwins = 0
 
+#End of game statements
+#Moved this chunk up here so that game can be ended anytime though the end command
+def end_game():
+    time.sleep(0.5)
+    if userwins < comwins:
+        print("You lose this game!\nThanks for playing!")
+    elif comwins < userwins:
+        print("You win this game!\nThanks for playing!")
+    else:
+        print("This game is a draw!\nThanks for playing!")
+    time.sleep(0.5)
+    input("press enter to exit...")
+    exit()
+
+#Game introduction
 print("Welcome to scissors paper stone!")
 time.sleep(0.5)
 
@@ -36,7 +51,7 @@ time.sleep(0.5)
 while gamecount < prescribed_games:
     while inputattempt < prescribed_attempts:
         ##Get the user's play
-        userinput = input("Turn " + str(gamecount + 1) + "\nChoose your [scissors,paper,stone]!\n")
+        userinput = input("Turn " + str(gamecount + 1) + "/" + str(prescribed_games) + "\nChoose your [scissors,paper,stone]!\n")
         #Check for any errors in selection, then proceeds with game if true
         #Now accepts shortform of the full word, as well as numbers corresponding to the position in list
         if userinput in choice1 + choice2 + choice3:
@@ -44,6 +59,8 @@ while gamecount < prescribed_games:
             #resets number of false attempts back to 0 for more shenanigans
             inputattempt = 0
             break
+        elif userinput in "End_end_Finish_finish_Stop_stop_Exit_exit":
+            end_game()
         
         #Prints out a random string from the list below, and prompts a re-entry
         else:
@@ -122,15 +139,7 @@ while gamecount < prescribed_games:
     if abs(userwins - comwins) > prescribed_games - gamecount:
         break
     else:
-        continue 
+        continue
 
 #End of game statements
-time.sleep(0.5)
-if userwins < comwins:
-    print("You lose this game!\nThanks for playing!")
-elif comwins < userwins:
-    print("You win this game!\nThanks for playing!")
-else:
-    print("This game is a draw!\nThanks for playing!")
-time.sleep(0.5)
-input("press enter to exit...")
+end_game()

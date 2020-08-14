@@ -5,9 +5,9 @@ import random, time
 inputattempt = 0 
 choicelist = ["scissors","paper","stone"]
 #added more than 1 choice of input
-choice1 = "Scissors scissors 1"
-choice2 = "Paper paper 2"
-choice3 = "Stone stone 3"
+choice1 = "Scissors_scissors_1"
+choice2 = "Paper_paper_2"
+choice3 = "Stone_stone_3"
 #Change the number of games below
 prescribed_games = 3
 #Change the number of invalid entries below
@@ -38,7 +38,6 @@ while gamecount < prescribed_games:
         ##Get the user's play
         userinput = input("Turn " + str(gamecount + 1) + "\nChoose your [scissors,paper,stone]!\n")
         #Check for any errors in selection, then proceeds with game if true
-        #Now accepts shortform of the full word, as well as numbers corresponding to the position in list
         if userinput in choice1 + choice2 + choice3:
             print("you have chosen " + userinput + "!")
             #resets number of false attempts back to 0 for more shenanigans
@@ -47,7 +46,7 @@ while gamecount < prescribed_games:
         
         #Prints out a random string from the list below, and prompts a re-entry
         else:
-            insultlist = ["Um... I am out of words.","How are you so bad at this?","Don't play games with me","We're playing scissors paper stone here","what are you doing?","as a computer I can't believe I'm facepalming","do you know how the world works?","Do you know how to type?"]
+            insultlist = ["Don't play games with me","We're playing scissors paper stone here","what are you doing?","as a computer I can't believe I'm facepalming","do you know how the world works?","Do you know how to type?"]
             #added a self counting system so insults can be added any time
             insultcount = len(insultlist)
             insultindex = random.randint(0,insultcount - 1)

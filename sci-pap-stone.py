@@ -59,7 +59,7 @@ while gamecount < prescribed_games:
             #resets number of false attempts back to 0 for more shenanigans
             inputattempt = 0
             break
-        elif userinput in "End_end_Finish_finish_Stop_stop_Exit_exit":
+        elif userinput in ["End","end","Finish","finish","Stop","stop","Exit","exit"]:
             end_game()
         
         #Prints out a random string from the list below, and prompts a re-entry

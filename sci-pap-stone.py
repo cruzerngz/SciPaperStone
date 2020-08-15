@@ -1,6 +1,5 @@
 #Import libraries
 import random, time
-
 #List of variables
 inputattempt = 0 
 choicelist = ["scissors","paper","stone"]
@@ -8,12 +7,12 @@ choicelist = ["scissors","paper","stone"]
 choice1 = "Scissors_scissors_1"
 choice2 = "Paper_paper_2"
 choice3 = "Stone_stone_3"
-#Change the number of games below
-prescribed_games = 3
+#Change the number of rounds below
+prescribed_rounds = 3
 #Change the number of invalid entries below
 prescribed_attempts = 5
 #At the start point of the game all counters are set to 0
-gamecount = 0
+roundcount = 0
 userwins = 0
 comwins = 0
 
@@ -35,23 +34,29 @@ def end_game():
 print("Welcome to scissors paper stone!")
 time.sleep(0.5)
 
-#Checks that input is an integer, exits the code if it isn't
-#Hash out the next 6 lines if you do not want the user to change no. of games
-try:
-    prescribed_games = int(input("Choose the number of games to play:\n"))
-except:
-    print("error. not a number")
-    input("press enter to exit...")
-    exit()
+#Checks that input is an integer, re-prompts if it isn't 
+#Hash out the next 12 lines below if you don't want the user to choose the number of games
+while True: #This section will keep looping until the `try` portion no longer gives an exception
+            #This occurs either if an end statement is given, or an integer is entered
+    input1 = input("Choose the number of games to play: ")
+    if input1 in ["End","end","Finish","finish","Stop","stop","Exit","exit"]:
+        end_game()
+    else:
+        try:
+            prescribed_rounds = int(input1)
+            break
+        except:
+            print("Please choose a whole number.\n")
+            continue 
 
 time.sleep(0.5)
-print("This is a best of " + str(prescribed_games) + "!\n")
+print("This is a best of " + str(prescribed_rounds) + "!\n")
 time.sleep(0.5)
 
-while gamecount < prescribed_games:
+while roundcount < prescribed_rounds:
     while inputattempt < prescribed_attempts:
         ##Get the user's play
-        userinput = input("Turn " + str(gamecount + 1) + "/" + str(prescribed_games) + "\nChoose your [scissors,paper,stone]!\n")
+        userinput = input("Turn " + str(roundcount + 1) + "/" + str(prescribed_rounds) + "\nChoose your [scissors,paper,stone]!\n")
         #Check for any errors in selection, then proceeds with game if true
         #Now accepts shortform of the full word, as well as numbers corresponding to the position in list
         if userinput in choice1 + choice2 + choice3:
@@ -61,7 +66,6 @@ while gamecount < prescribed_games:
             break
         elif userinput in ["End","end","Finish","finish","Stop","stop","Exit","exit"]:
             end_game()
-        
         #Prints out a random string from the list below, and prompts a re-entry
         else:
             insultlist = ["Um... I am out of words.","How are you so bad at this?","Don't play games with me","We're playing scissors paper stone here","what are you doing?","as a computer I can't believe I'm facepalming","do you know how the world works?","Do you know how to type?"]
@@ -74,7 +78,6 @@ while gamecount < prescribed_games:
             time.sleep(0.5)
             #The number of tries can be modified to any amount necessary
             #To change the no. of tries, modify the prescribed_attempts variable
-
             if inputattempt < prescribed_attempts - 1:
                 remainingtry = prescribed_attempts - inputattempt
                 print("You have " + str(remainingtry) + " tries left!\n")
@@ -94,10 +97,9 @@ while gamecount < prescribed_games:
     print("The computer chooses " + str(choicelist[comchoiceno]) + "!")
     #Game pauses 1 second for dramatic effect
     time.sleep(1)
-
     #As a best of style of game, the loop will keep going until the number of games hits the prescribed amount
     while comchoiceno == 0:
-        gamecount += 1
+        roundcount += 1
         if userinput in choice1:
             print("It's a draw!")
         elif userinput in choice2:
@@ -110,7 +112,7 @@ while gamecount < prescribed_games:
         break
 
     while comchoiceno == 1:
-        gamecount += 1
+        roundcount += 1
         if userinput in choice1:
             print("You win!")
             userwins += 1
@@ -123,7 +125,7 @@ while gamecount < prescribed_games:
         break
 
     while comchoiceno == 2:
-        gamecount += 1
+        roundcount += 1
         if userinput in choice1:
             print("You lose!")
             comwins += 1
@@ -134,9 +136,10 @@ while gamecount < prescribed_games:
             print("It's a draw!")
         print("computer: " + str(comwins) + ", you: " + str(userwins) + "\n")
         break
+    
     #This checks the number of remaining turns with the score gap between player and computer.
     #Game ends when the score gap cannot be closed.
-    if abs(userwins - comwins) > prescribed_games - gamecount:
+    if abs(userwins - comwins) > prescribed_rounds - roundcount:
         break
     else:
         continue

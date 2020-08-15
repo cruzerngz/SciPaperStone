@@ -16,15 +16,6 @@ roundcount = 0
 userwins = 0
 comwins = 0
 
-#Checks that input is an integer, re-prompts if it isn't 
-#Hash out the function in line 48 if you do not want it inside the game
-def keyboard_input():
-    try:
-        prescribed_rounds = int(input("Choose the number of games to play: "))
-    except:
-        print("Please enter a whole number.\n")
-        keyboard_input()
-
 #End of game statements
 #Moved this chunk up here so that game can be ended anytime though the end command
 def end_game():
@@ -43,8 +34,20 @@ def end_game():
 print("Welcome to scissors paper stone!")
 time.sleep(0.5)
 
-#Hash out the line below if you don't want the user to choose the number of games
-keyboard_input()
+#Checks that input is an integer, re-prompts if it isn't 
+#Hash out the next 12 lines below if you don't want the user to choose the number of games
+while True: #This section will keep looping until the `try` portion no longer gives an exception
+            #This occurs either if an end statement is given, or an integer is entered
+    input1 = input("Choose the number of games to play: ")
+    if input1 in ["End","end","Finish","finish","Stop","stop","Exit","exit"]:
+        end_game()
+    else:
+        try:
+            prescribed_rounds = int(input1)
+            break
+        except:
+            print("Please choose a whole number.\n")
+            continue 
 
 time.sleep(0.5)
 print("This is a best of " + str(prescribed_rounds) + "!\n")

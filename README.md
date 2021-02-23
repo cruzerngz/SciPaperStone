@@ -18,26 +18,3 @@ As this is a best of game, when the current score gap cannot be closed by the lo
 For example, if you have a 2-0 lead over the computer in a 3 round game, the game will end without proceeding to the final round.
 
 Thanks for playing!
-
-
-`x1 = np.array([1,0,0,0])
-
-Slist, Ilist, Rlist, Dlist = [1], [0],[0],[0]
-for i in range(200):
-    x1=P@x1
-    Slist.append(x1[0])
-    Ilist.append(x1[1])
-    Rlist.append(x1[2])
-    Dlist.append(x1[3])
-
-plt.figure(figsize=(16,8))
-plt.plot(Slist, label = "S(t), susceptible")
-plt.plot(Ilist, label = "I(t), infected")
-plt.plot(Rlist, label = "R(t), recovered with immunity")
-plt.plot(Dlist, label = "D(t), dead")
-plt.title("Progression of Disease")
-plt.xlabel("t / day")
-plt.ylabel("Percentile of population")
-plt.legend(bbox_to_anchor=(1.2, 1), loc='upper left', borderaxespad=0)
-plt.grid()
-plt.show()`

@@ -34,8 +34,6 @@ typedef struct _game {
     uint32_t com_wins;
 } Game;
 
-// int validateinput(int input);
-// char *throwinsult();
 void game_init(Game* new_game, uint32_t total_rounds);
 void game_round_next(Game *game);
 void game_round_add_user_win(Game *game);

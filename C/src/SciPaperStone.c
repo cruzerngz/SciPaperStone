@@ -50,6 +50,7 @@ int main() {
 
     delay(500);
     game_end_show_statistics(&game);
+    game_show_inferred_statistics(&game);
     return 0;
 }
 
@@ -124,6 +125,19 @@ void game_show_round_statistics(Game *game) {
     printf("Wins: %d\n", game->user_wins);
     printf("Losses: %d\n", game->com_wins);
     printf("Ties: %d\n", game->rounds_played - game->user_wins - game->com_wins);
+}
+
+/**
+ * @brief Displays additional information calculated from base game data
+ *
+ * @param game Pointer to game struct
+ */
+void game_show_inferred_statistics(Game *game) {
+    uint32_t skipped_rounds = game->num_rounds - game->rounds_played;
+
+    if(skipped_rounds > 0) {
+        printf("Skipped %d round(s).\n", skipped_rounds);
+    }
 }
 
 /**
